@@ -14,19 +14,20 @@ class MyListener(StreamListener):
         try:
             tweet = json.loads(data)
 
-            print "%s %s" % (tweet['created_at'], tweet['text'])
-            collection.insert(
-                {
-                    "user": {
-                        "screen_name": tweet['user']['screen_name'],
-                        "id_str": tweet['user']['id_str']
-                    },
-                    "time": tweet['created_at'],
-                    "text": tweet['text']
-                }
-            )
+            if not tweet['text'].startswith('RT'):
+                print "%s %s" % (tweet['created_at'], tweet['text'])
+                collection.insert(
+                    {
+                        "user": {
+                            "screen_name": tweet['user']['screen_name'],
+                            "id_str": tweet['user']['id_str']
+                        },
+                        "time": tweet['created_at'],
+                        "text": tweet['text']
+                    }
+                )
 
-            return True
+                return True
 
         except BaseException as e:
             print("--> Error on_data: %s" % str(e))
