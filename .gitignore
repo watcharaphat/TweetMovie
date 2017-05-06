@@ -1,2 +1,4 @@
 api_keys.py
 mongo_auth.py
+*.pyc
+.DS_Store
