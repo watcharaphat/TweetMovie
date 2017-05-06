@@ -55,6 +55,6 @@ if __name__ == '__main__':
     # good_words = dumps(content)
 
     #This line filter Twitter Streams to capture data by the keywords: '
-    twitter_stream.filter(languages = ["en"],
+    twitter_stream.filter(languages = ["th"],
                           track = bad_words
                           )
