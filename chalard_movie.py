@@ -51,11 +51,11 @@ if __name__ == '__main__':
 
     with open('keyword/chalard_keywords.txt') as f:
         content = f.readlines()
-    bad_words = [line.decode('utf-8').strip('\n') for line in content]
+    keywords = [line.decode('utf-8').strip('\n') for line in content]
     #good_words = [x.strip('\n') for x in content]
     # good_words = dumps(content)
 
     #This line filter Twitter Streams to capture data by the keywords: '
     twitter_stream.filter(languages = ["th"],
-                          track = bad_words
+                          track = keywords
                           )
