@@ -12,7 +12,7 @@ sys.setdefaultencoding('utf8')
 
 if __name__ == '__main__':
     client = MongoClient('mongodb://' + MONGO_USERNAME + ':' + MONGO_PASSWORD
-                         + '@watcharaphat.com')
+                         + '@watcharaphat.com/twitter_db')
     db = client['twitter_db']
 
     if(len(sys.argv) < 2):
